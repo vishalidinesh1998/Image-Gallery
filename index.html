@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    body {
+        background: #EEAECA;
+        background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    }
+
+    .image-container img {
+        width: 200px;
+        height: 200px;
+        border: solid white 3px;
+
+    }
+
+    .image-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+        padding: 2rem;
+        width: 50%;
+        margin: auto;
+        align-items: center;
+
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .popup-image {
+        display: none;
+        position: relative;
+        margin-top: 10%;
+        margin-left: 40%;
+    }
+
+    .popup-image img {
+        width: 300px;
+        height: 300px;
+        border: solid white 3px;
+
+    }
+
+    #cross {
+
+        position: absolute;
+        right: 30%;
+        font-size: 2rem;
+        background: antiquewhite;
+    }
+</style>
+
+<body>
+    <h1>Image Gallery</h1>
+    <div class="image-container" id="image">
+        <img src="./images/download.jpeg">
+        <img src="./images/d2.jpeg">
+        <img src="./images/d3.jpeg">
+        <img src="./images/d4.jpeg">
+        <img src="./images/d5.jpeg">
+        <img src="./images/d6.jpeg">
+
+    </div>
+    <div class="popup-image" id="popup">
+        <span><i class="fa-solid fa-xmark" id="cross"></i></span>
+        <img src="">
+
+    </div>
+    <script>
+        const popup = document.querySelector(".popup-image");
+        const popupImg = popup.querySelector("img");
+        document.querySelectorAll(".image-container img").forEach(function (image) {
+
+            image.addEventListener("click", function () {
+
+                popup.style.display = "flex";
+                popupImg.src = image.getAttribute("src");
+                document.querySelector(".image-container").style.display = "none";
+
+
+            })
+            //popup close
+            var cross = document.getElementById("cross");
+            cross.addEventListener("click", function () {
+                popup.style.display = "none"
+                document.querySelector(".image-container").style.display = "block";
+
+            })
+        })
+
+
+
+    </script>
+</body>
+
+</html>
