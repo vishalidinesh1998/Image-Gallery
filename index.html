@@ -21,6 +21,10 @@
         border: solid white 3px;
 
     }
+    .image-container img:hover{
+        transform: scale(0.9); /* initial small scale */
+        transition: 1s; /* smooth animation */
+    }
 
     .image-container {
         display: grid;
@@ -62,7 +66,7 @@
     @media screen and (max-width: 800px) {
         @media screen and (max-width: 768px) {
     .image-container {
-        grid-template-columns: 1fr 1fr; /* 2 column layout */
+        grid-template-columns: 1fr; /* 2 column layout */
         width: 90%;
         padding: 1rem;
     }
@@ -72,6 +76,7 @@
         height: 100%;
     }
 
+  
     .popup-image {
         position: fixed;
         inset: 0;
@@ -85,7 +90,9 @@
     .popup-image img {
         width: 80%;
         height: auto;
+       
     }
+ 
 
     #cross {
         position: absolute;
